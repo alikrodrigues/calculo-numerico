@@ -1,0 +1,61 @@
+<h3 class="text-center">Calculadora de conversões</h3>
+<form [formGroup]="formGroup" class="form-control">
+  <br/>
+  <div class="row">
+    <div class="col-2">
+      <label>Selecione uma opção:</label>
+    </div>
+    <div class="col-sm-3">
+      <select formControlName="opcao" class="form-control">
+        <option selected value="2">Binario</option>
+        <option value="8">Octal</option>
+        <option value="10">Decimal</option>
+        <option value="16">Hexadecimal</option>
+      </select>
+    </div>
+    <div class="col-xl-5">
+      <input class="form-control" formControlName="inicio" type="number" placeholder="Digite o número de inicio..." >
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-2">
+        <label for="binario">Em Binario:</label>
+      </div>
+      <div class="col-2">
+        <input formControlName="binario" class="form-control" id="binario" readonly>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-2">
+        <label for="octal">Em Octal:</label>
+      </div>
+      <div class="col-2">
+        <input formControlName="octal" class="form-control" id="octal" readonly>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-2">
+        <label for="decimal">Em Decimal:</label>
+      </div>
+      <div class="col-2">
+        <input  formControlName="decimal" class="form-control" id="decimal" readonly>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-2">
+        <label for="hexadecimal">Em Hexadecimal:</label>
+      </div>
+      <div class="col-2">
+        <input formControlName="hexadecimal" class="form-control" id="hexadecimal" readonly>
+      </div>
+    </div>
+  </div>
+</form>

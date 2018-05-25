@@ -1,0 +1,132 @@
+<form [formGroup]="formGroup" class="form-control">
+  <h3 class="text-center">Calcular Bisecção</h3>
+  <div class="row">
+    <div class="col-8">
+      <span>Insira uma equação linear para f(x) </span>
+    </div>
+  </div>
+  <div class="row">
+
+
+    <div class="col-1">
+      <select formControlName="x" class="form-control">
+        <option value="x">X</option>
+      </select>
+    </div>
+    <div class="col-1">
+      <select formControlName="sinal" class="form-control">
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+    </div>
+    <div class="col-1">
+      <select formControlName="variavel" class="form-control">
+        <option value="0" >0</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+    </div>
+
+
+    <div class="col-1">
+      <select formControlName="expo" class="form-control">
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+
+
+    <div class="col-1">
+        <select formControlName="x2" class="form-control">
+          <option value="x">X</option>
+        </select>
+    </div>
+      <div class="col-1">
+        <select formControlName="expo2" class="form-control">
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    <div class="col-1">
+      <select formControlName="sinal2" class="form-control">
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+    </div>
+    <div class="col-1">
+      <select formControlName="variavel2" class="form-control">
+        <option value="0" >0</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+    </div>
+    <div class="col-1">
+      <select formControlName="sinal3" class="form-control">
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+    </div>
+    <div class="col-1">
+      <select formControlName="variavel3" class="form-control">
+        <option value="0" >0</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-5">
+      <input formControlName="varA" type="number" [class.alert-danger]="hasError()"
+             [class.alert-success]="hasSucess()" class="form-control" placeholder="valor de a...">
+    </div>
+    <div class="col-5">
+      <input formControlName="varB" type="number" [class.alert-danger]="hasError2()"
+             [class.alert-success]="hasSucess2()" class="form-control" placeholder="valor de b...">
+    </div>
+  </div>
+  <br/>
+<div class="table-resposive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>K</th>
+        <th>A</th>
+        <th>B</th>
+        <th>X(k)</th>
+        <th>F(xK)</th>
+        <th>F(a)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td scope="row"></td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+
+</form>
