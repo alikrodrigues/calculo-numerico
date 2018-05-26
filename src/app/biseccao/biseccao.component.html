@@ -107,6 +107,10 @@
     </div>
   </div>
   <br/>
+  <div class="row">
+    <button (click)="conversor()" class="btn bg-dark text-white form-control">Confirmar equação e valores</button>
+  </div>
+  <br/>
 <div class="table-resposive">
     <table class="table">
       <thead>
@@ -120,10 +124,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td scope="row"></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let table of objectTable">
+        <td>{{table.k}}</td>
+        <td>{{table.a}}</td>
+        <td>{{table.b}}</td>
+        <td>{{table.xk}}</td>
+        <td>{{table.fxk}}</td>
+        <td>{{table.fa}}</td>
       </tr>
       </tbody>
     </table>

@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from '@angular/common';
 import { ConversaoComponent } from './conversao/conversao.component';
 import { BiseccaoComponent } from './biseccao/biseccao.component';
+import {ConversaoService} from "./conversao/conversao.service";
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { BiseccaoComponent } from './biseccao/biseccao.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ConversaoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
