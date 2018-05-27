@@ -48,69 +48,236 @@ export class BiseccaoComponent implements OnInit,AfterContentInit {
       this.formGroup.controls['x2'].value +this.formGroup.controls['expo2'].value +
       this.formGroup.controls['sinal2'].value +this.formGroup.controls['variavel2'].value+')' +
       this.formGroup.controls['sinal3'].value +this.formGroup.controls['variavel3'].value;
-    let a = this.formGroup.controls['varA'].value;
+    let a  = this.formGroup.controls['varA'].value;
     let b = this.formGroup.controls['varB'].value;
     let x : number = 0;
     let fxk : number = 0;
     let fa : number = 0;
-    let variavel: number = this.formGroup.controls['variavel'].value;
-    let expo: number = this.formGroup.controls['expo'].value;
-    let expo2: number = this.formGroup.controls['expo2'].value;
-    let variavel2: number = this.formGroup.controls['variavel2'].value;
-    let variavel3: number = this.formGroup.controls['variavel3'].value;
-
-
-
-
-
-
-
+    let variavel: number = Number(this.formGroup.controls['variavel'].value);
+    let expo: number = Number(this.formGroup.controls['expo'].value);
+    let expo2: number =  Number(this.formGroup.controls['expo2'].value);
+    let variavel2: number = Number(this.formGroup.controls['variavel2'].value);
+    let variavel3: number = Number(this.formGroup.controls['variavel3'].value);
 
 
       if(this.formGroup.controls['sinal'].value=='-'&& this.formGroup.controls['sinal2'].value =='-'&&
         this.formGroup.controls['sinal3'].value=='-'){
-        let result1 = Math.pow(x - variavel2,expo);
-        let result2 = Math.pow(x,expo2) - variavel2;
-        let resultEuler = Math.exp(result2)
-        fxk = result1 * resultEuler - variavel3;
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x - variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) - variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            - variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) - variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) - variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))- variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
 
 
       }
       if(this.formGroup.controls['sinal'].value=='+'&& this.formGroup.controls['sinal2'].value =='+'&&
         this.formGroup.controls['sinal3'].value=='+'){
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x + variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) + variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            + variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) + variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) + variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))+ variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
 
       }
       if(this.formGroup.controls['sinal'].value=='-'&& this.formGroup.controls['sinal2'].value =='+'&&
         this.formGroup.controls['sinal3'].value=='+'){
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x - variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) + variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            + variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) - variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) + variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))+ variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
 
       }
       if(this.formGroup.controls['sinal'].value=='-'&& this.formGroup.controls['sinal2'].value =='-'&&
         this.formGroup.controls['sinal3'].value=='+'){
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x - variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) - variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            + variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) - variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) - variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))+ variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
 
       }
       if(this.formGroup.controls['sinal'].value=='-'&& this.formGroup.controls['sinal2'].value =='+'&&
         this.formGroup.controls['sinal3'].value=='-'){
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x - variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) + variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            - variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) - variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) + variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))- variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
+
+
       }
 
       if(this.formGroup.controls['sinal'].value=='+'&& this.formGroup.controls['sinal2'].value =='-'&&
         this.formGroup.controls['sinal3'].value=='-'){
-        for(let i: number = 0;i<7;i++) {
-          x = (a+b)/2;
-          let result1 = Math.pow(x - variavel2, expo);
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x + variavel
+          let result1 = Math.pow( aux, expo);
           let result2 = Math.pow(x, expo2) - variavel2;
           let resultEuler = Math.exp(result2)
-          fxk = result1 * resultEuler - variavel3;
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+              - variavel3).toPrecision(6));
+
+
 
           //f(a)
-          result1 = Math.pow(a - variavel2, expo);
-          result2 = Math.pow(a, expo2) - variavel2;
-          resultEuler = Math.exp(result2)
-          fa = result1 * resultEuler - variavel3;
+
+          let aux2: number = Number(a) + variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) - variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))- variavel3).toPrecision(6));
+
+
+
 
           if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
             this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
           }
-          if(fxk>0){
+          if(fa*fxk>0){
             a = x;
           }else{
             b=x;
@@ -120,38 +287,82 @@ export class BiseccaoComponent implements OnInit,AfterContentInit {
 
       if(this.formGroup.controls['sinal'].value=='+'&& this.formGroup.controls['sinal2'].value =='-'&&
         this.formGroup.controls['sinal3'].value=='+'){
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x + variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) - variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            + variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) + variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) - variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))+ variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
 
       }
       if(this.formGroup.controls['sinal'].value=='+'&& this.formGroup.controls['sinal2'].value =='+'&&
         this.formGroup.controls['sinal3'].value=='-'){
+        for(let i: number = 0;i<8;i++) {
+          x = (Number(a)+Number(b))/2;
+          let aux: number = x + variavel
+          let result1 = Math.pow( aux, expo);
+          let result2 = Math.pow(x, expo2) + variavel2;
+          let resultEuler = Math.exp(result2)
+          fxk = Number((result1 * Number(resultEuler.toPrecision(6))
+            - variavel3).toPrecision(6));
+
+
+
+          //f(a)
+
+          let aux2: number = Number(a) + variavel
+          let result3 = Math.pow(aux2, expo);
+          let result4 = Math.pow(Number(a), expo2) + variavel2;
+          let resultEuler2 = Math.exp(result4)
+          fa =Number((result3 * Number(resultEuler2.toPrecision(6))
+            - variavel3).toPrecision(6));
+
+
+
+
+          if(i==0){
+            this.objectTable.push(new ObjectTable(i,this.formGroup.controls['varA'].value,this.formGroup.controls['varB'].value,x,fxk,fa));
+          }else{
+            this.objectTable.push(new ObjectTable(i,a,b,x,fxk,fa));
+          }
+          if(fa*fxk>0){
+            a = x;
+          }else{
+            b=x;
+          }
+        }
       }
 
-
-
-
-
-
-
-
-
-     // this.objectTable.push(new ObjectTable(0,,this.formGroup.controls['varB'].value))
-
-
   }
 
-  convertEquacao(sinal,variavel):number{
-    if(sinal == '-'){
-      let number: number = parseInt(variavel);
-      number = (parseInt(variavel))- number * 2;
-      return number;
-    }else{
-      let number: number = parseInt(variavel);
-      return number;
-    }
-  }
-
-
-
+  
   hasSucess(): boolean{
     return this.input.valid && (this.input.dirty || this.input.touched)
   }
