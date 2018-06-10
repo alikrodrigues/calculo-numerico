@@ -1,0 +1,162 @@
+<form [formGroup]="formGroup" class="form-control">
+<h3 class="text-center">Newton Rapshon</h3>
+<div class="row">
+  <div class="col-8">
+    <span> Insira uma equação  </span>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-1">
+    <select formControlName="sinal" class="form-control">
+      <option value="+">+</option>
+      <option value="-">-</option>
+    </select>
+  </div>
+
+  <div class="col-1">
+    <select formControlName="variavel" class="form-control">
+      <option value="0" >0</option>
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+  </div>
+
+  <div class="col-1">
+    <select formControlName="x" class="form-control">
+      <option value="x">X</option>
+    </select>
+  </div>
+
+  <div class="col-1">
+    <select formControlName="expo" class="form-control">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="col-1">
+    <select formControlName="sinal2" class="form-control">
+      <option value="+">+</option>
+      <option value="-">-</option>
+    </select>
+  </div>
+
+  <div class="col-1">
+    <select formControlName="variavel2" class="form-control">
+      <option value="0" >0</option>
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+  </div>
+
+  <div class="col-1">
+    <select formControlName="x2" class="form-control">
+      <option value="x">X</option>
+    </select>
+</div>
+
+<div class="col-1">
+  <select formControlName="expo2" class="form-control">
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="col-1">
+  <select formControlName="sinal3" class="form-control">
+    <option value="+">+</option>
+    <option value="-">-</option>
+  </select>
+</div>
+
+<div class="col-1">
+  <select formControlName="variavel3" class="form-control">
+    <option value="0" >0</option>
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+</div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-4 text-center">
+        <label >Qual o valor de intervalo ?</label>
+    </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <input class="form-control" formControlName="intervalo" type="number" placeholder="intervalo">
+  </div>
+  <div class="col-4">
+    <input class="form-control" formControlName="intervalo2" type="number" placeholder=" segundo intervalo">
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 text-center">
+    <label >Entre com valor para arredondamento</label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <input class="form-control" type="number" formControlName="arredondamento" placeholder="entre com um expoente para 10">
+  </div>
+</div>
+<div class="row">
+    <div class="col-4 text-center">
+        <label >Entre com valor para arredondamentodo erro</label>
+    </div>
+</div>    
+<div class="row">
+  <div class="col-4">
+    <input class="form-control" type="number" formControlName="erro" placeholder="entre com um expoente para 10">
+  </div>
+</div>
+<br/>
+<div class="row">
+  <button [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
+</div>
+
+<table class="table table-{1:striped|sm|bordered|hover|inverse} table-inverse table-responsive">
+  <thead class="thead-inverse|thead-default">
+    <tr>
+      <th>k</th>
+      <th>x</th>
+      <th>f(x)</th>
+      <th>f(xk+1)</th>
+      <th>erro</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+</table>
+
+
+</form>

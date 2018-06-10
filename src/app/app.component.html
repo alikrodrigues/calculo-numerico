@@ -6,11 +6,15 @@
 <body>
 
  <div class="container-fluid">
-   <br/>
-    <app-conversao></app-conversao>
-  <br/>
-    <app-biseccao></app-biseccao>
+        <tabset>
+          <tab heading="Conversor" id="tab1"><app-conversao></app-conversao></tab>
+          <tab heading="Bisecção Prova"><app-biseccao></app-biseccao></tab>
+          <tab heading="Bisecção"><app-biseccao-loca></app-biseccao-loca></tab>
+          <tab heading="Lineares">Lineares</tab>
+          <tab heading="Newton Raphson"><app-newton-raphson></app-newton-raphson></tab>
+        </tabset>
  </div>
+ <br/>
 </body>
 <footer class="bg-dark">
   <div class="text-left text-white">

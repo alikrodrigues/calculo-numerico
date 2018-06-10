@@ -42,7 +42,7 @@ export class BiseccaoComponent implements OnInit,AfterContentInit {
     })
   }
 
-  conversor(){
+  conversor() {
     let string: string = '(' +this.formGroup.controls['x'].value + this.formGroup.controls['sinal'].value +
       this.formGroup.controls['variavel'].value+')' +this.formGroup.controls['expo'].value +'e('+
       this.formGroup.controls['x2'].value +this.formGroup.controls['expo2'].value +

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { setTheme } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,10 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+constructor() {
+  setTheme('bs4');
+}
+
 
 
 }
