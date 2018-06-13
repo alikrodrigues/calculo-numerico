@@ -100,6 +100,30 @@
         <option value="9">9</option>
       </select>
     </div>
+
+    <div class="col-1">
+      <select formControlName="sinal4" class="form-control">
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+    </div>
+
+    <div class="col-1">
+      <select formControlName="variavel4" class="form-control">
+        <option value="0">0</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+    </div>
+
+
     </div>
     <br/>
     <div class="row">
@@ -117,7 +141,7 @@
     </div>
     <br/>
     <div class="row">
-      <button [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
+      <button (click)="calcular()" [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
     </div>
     <div class="table-resposive">
         <table class="table">
