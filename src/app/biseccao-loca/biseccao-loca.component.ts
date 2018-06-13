@@ -14,6 +14,18 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
   input2: any;
   objectTable: ObjectTable[] = [];
 
+  a: any;
+  b: any;
+  x: number = 0;
+  fxk: number = 0;
+  fa: number = 0;
+  variavel: number;
+  expo: number;
+  expo2: number;
+  variavel2: number;
+  variavel3: number;
+  variavel4: number 
+
 
   formGroup: FormGroup;
 
@@ -44,58 +56,67 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
     });
   }
 
+  hasSucess(): boolean {
+    return this.input.valid && (this.input.dirty || this.input.touched)
+  }
+
+
+  hasSucess2(): boolean {
+    return this.input2.valid && (this.input2.dirty || this.input2.touched)
+  }
+
+  hasError(): boolean {
+    return this.input.invalid && (this.input.dirty || this.input.touched)
+  }
+
+  hasError2(): boolean {
+    return this.input2.invalid && (this.input2.dirty || this.input2.touched)
+  }
+
 
   calcular() {
-    let a  = this.formGroup.controls['varA'].value;
-    let b = this.formGroup.controls['varB'].value;
-    let x : number = 0;
-    let fxk : number = 0;
-    let fa : number = 0;
-    let variavel: number = Number(this.formGroup.controls['variavel'].value);
-    let expo: number = Number(this.formGroup.controls['expo'].value);
-    let expo2: number =  Number(this.formGroup.controls['expo2'].value);
-    let variavel2: number = Number(this.formGroup.controls['variavel2'].value);
-    let variavel3: number = Number(this.formGroup.controls['variavel3'].value);
-    let variavel4: number = Number(this.formGroup.controls['sinal4'].value + this.formGroup.controls['variavel4'].value);
-
-    
-    
+    this.a  = this.formGroup.controls['varA'].value;
+    this.b = this.formGroup.controls['varB'].value;
+    this.x = 0;
+    this.fxk = 0;
+    this.fa  = 0;
+    this.variavel = Number(this.formGroup.controls['variavel'].value);
+    this.expo = Number(this.formGroup.controls['expo'].value);
+    this.expo2 =  Number(this.formGroup.controls['expo2'].value);
+    this.variavel2 = Number(this.formGroup.controls['variavel2'].value);
+    this.variavel3 = Number(this.formGroup.controls['variavel3'].value);
+    this.variavel4 = Number(this.formGroup.controls['sinal4'].value + this.formGroup.controls['variavel4'].value);
 
     for (let i = 0; i < 8; i++) {
-    x = (Number(a) + Number(b)) / 2;
+    this.x = (Number(this.a) + Number(this.b)) / 2;
     
     //fxk
-    let result: number = Number(this.formGroup.controls['sinal'].value + Math.pow((
-      variavel * x), expo)) + 
+    this.fxk = Number(this.calculaFuncao(this.x).toPrecision(6));      
+
+    //f(a)
+    this.fa = Number(this.calculaFuncao(this.a).toPrecision(6));
+
+    if (i == 0) {
+      this.objectTable.push(new ObjectTable(i, this.formGroup.controls['varA'].value, this.formGroup.controls['varB'].value, this.x, this.fxk, this.fa));
+    } else {
+      this.objectTable.push(new ObjectTable(i, this.a, this.b, this.x, this.fxk, this.fa));
+    }
+    if (this.fa * this.fxk > 0) {
+      this.a = this.x;
+    } else {
+      this.b = this.x;
+    }
+   } 
+ }
+
+  calculaFuncao(n: number): number {
+    const result1: number = Number(this.formGroup.controls['sinal'].value + Math.pow((
+      this.variavel * n), this.expo)) +
       Number(this.formGroup.controls['sinal2'].value + Math.pow((
-        variavel2 * x), expo2)) +
-      Number(this.formGroup.controls['sinal3'].value +(
-          variavel3 * x)) + variavel4;
-      
-      fxk = Number(result.toPrecision(6));      
-
-
-      //f(a)
-
-      let result1: number = Number(this.formGroup.controls['sinal'].value + Math.pow((
-        variavel * a), expo)) +
-        Number(this.formGroup.controls['sinal2'].value + Math.pow((
-          variavel2 * a), expo2)) +
-        Number(this.formGroup.controls['sinal3'].value + (
-          variavel3 * a)) + variavel4;
-
-      fa = Number(result1.toPrecision(6));
-
-      if (i == 0) {
-        this.objectTable.push(new ObjectTable(i, this.formGroup.controls['varA'].value, this.formGroup.controls['varB'].value, x, fxk, fa));
-      } else {
-        this.objectTable.push(new ObjectTable(i, a, b, x, fxk, fa));
-      }
-      if (fa * fxk > 0) {
-        a = x;
-      } else {
-        b = x;
-      }
-    } 
+        this.variavel2 * n), this.expo2)) +
+      Number(this.formGroup.controls['sinal3'].value + (
+        this.variavel3 * n)) + this.variavel4;
+        return result1;
   }
+
 }
