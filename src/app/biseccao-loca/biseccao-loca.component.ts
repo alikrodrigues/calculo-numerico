@@ -75,6 +75,7 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
 
 
   calcular() {
+    this.objectTable = [];
     this.a  = this.formGroup.controls['varA'].value;
     this.b = this.formGroup.controls['varB'].value;
     this.x = 0;
@@ -89,19 +90,24 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
 
     for (let i = 0; i < 8; i++) {
     this.x = (Number(this.a) + Number(this.b)) / 2;
-    
+
     //fxk
-    this.fxk = Number(this.calculaFuncao(this.x).toPrecision(6));      
+    this.fxk = Number.parseFloat(this.calculaFuncao(this.x).toFixed(6));
 
     //f(a)
-    this.fa = Number(this.calculaFuncao(this.a).toPrecision(6));
+    this.fa = Number.parseFloat(this.calculaFuncao(this.a).toFixed(6));
 
     if (i == 0) {
-      this.objectTable.push(new ObjectTable(i, this.formGroup.controls['varA'].value, this.formGroup.controls['varB'].value, this.x, this.fxk, this.fa));
+    this.objectTable.push(new ObjectTable(i, this.formGroup.controls['varA'].value,
+     this.formGroup.controls['varB'].value, this.x, this.fxk, this.fa));
     } else {
       this.objectTable.push(new ObjectTable(i, this.a, this.b, this.x, this.fxk, this.fa));
     }
-    if (this.fa * this.fxk > 0) {
+
+
+    console.log(Number.parseFloat((this.fa * this.fxk).toFixed(6)).toFixed(6));
+
+    if (Number.parseFloat((this.fa * this.fxk).toFixed(6)) > 0) {
       this.a = this.x;
     } else {
       this.b = this.x;
