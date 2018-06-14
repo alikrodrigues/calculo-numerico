@@ -104,10 +104,7 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
       this.objectTable.push(new ObjectTable(i, this.a, this.b, this.x, this.fxk, this.fa));
     }
 
-
-    console.log(Number.parseFloat((this.fa * this.fxk).toFixed(6)).toFixed(6));
-
-    if (Number.parseFloat((this.fa * this.fxk).toFixed(6)) > 0) {
+    if (this.fa * this.fxk > 0) {
       this.a = this.x;
     } else {
       this.b = this.x;
@@ -116,12 +113,12 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
  }
 
   calculaFuncao(n: number): number {
-    const result1: number = Number(this.formGroup.controls['sinal'].value + Math.pow((
+    const result1: number = Number.parseFloat(this.formGroup.controls['sinal'].value + Math.pow((
       this.variavel * n), this.expo)) +
-      Number(this.formGroup.controls['sinal2'].value + Math.pow((
+      Number.parseFloat(this.formGroup.controls['sinal2'].value + Math.pow((
         this.variavel2 * n), this.expo2)) +
-      Number(this.formGroup.controls['sinal3'].value + (
-        this.variavel3 * n)) + this.variavel4;
+      Number.parseFloat(this.formGroup.controls['sinal3'].value + 
+        this.variavel3);
         return result1;
   }
 

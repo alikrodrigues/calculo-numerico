@@ -136,11 +136,11 @@
 </div>
 <br/>
 <div class="row">
-  <button [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
+  <button (click)="calcular()" [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
 </div>
-
-<table class="table table-{1:striped|sm|bordered|hover|inverse} table-inverse table-responsive">
-  <thead class="thead-inverse|thead-default">
+<div class="table-resposive">
+<table class="table">
+  <thead>
     <tr>
       <th>k</th>
       <th>x</th>
@@ -150,13 +150,15 @@
     </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let table of objectTable">
+        <td>{{table.k}}</td>
+        <td>{{table.x}}</td>
+        <td>{{table.fx}}</td>
+        <td>{{table.fxk1}}</td>
+        <td>{{table.error}}</td>
       </tr>
     </tbody>
 </table>
-
+</div>
 
 </form>

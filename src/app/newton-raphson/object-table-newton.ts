@@ -1,10 +1,9 @@
 export  class ObjectTableNewton {
 
     constructor(public k: number,
-                public a: number,
-                public b: number,
-                public xk: number,
-                public fxk: number,
-                public fa: number) {
+                public x: number,
+                public fx: number,
+                public fxk1: number,
+                public error: number) {
     }
 }
