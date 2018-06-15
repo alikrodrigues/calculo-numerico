@@ -114,26 +114,6 @@
     <input class="form-control" formControlName="intervalo2" type="number" placeholder=" segundo intervalo">
   </div>
 </div>
-<div class="row">
-  <div class="col-4 text-center">
-    <label >Entre com valor para arredondamento</label>
-  </div>
-</div>
-<div class="row">
-  <div class="col-4">
-    <input class="form-control" type="number" formControlName="arredondamento" placeholder="entre com um expoente para 10">
-  </div>
-</div>
-<div class="row">
-    <div class="col-4 text-center">
-        <label >Entre com valor para arredondamentodo erro</label>
-    </div>
-</div>    
-<div class="row">
-  <div class="col-4">
-    <input class="form-control" type="number" formControlName="erro" placeholder="entre com um expoente para 10">
-  </div>
-</div>
 <br/>
 <div class="row">
   <button (click)="calcular()" [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
