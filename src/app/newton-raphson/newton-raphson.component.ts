@@ -45,27 +45,27 @@ export class NewtonRaphsonComponent implements OnInit {
   }
 
 
-  calcular(){
+  calcular() {
     this.objectTable = [];
     let intervalo = Number(this.formGroup.controls['intervalo'].value);
     let intervalo2 = Number(this.formGroup.controls['intervalo2'].value);
     this.x = 0;
     this.fx = 0;
     this.fxk1 = 0;
-    this.variavel = Number(this.formGroup.controls['variavel'].value);
+    this.variavel = Number.parseFloat(this.formGroup.controls['sinal'].value + this.formGroup.controls['variavel'].value);
     this.expo = Number(this.formGroup.controls['expo'].value);
     this.expo2 = Number(this.formGroup.controls['expo2'].value);
-    this.variavel2 = Number(this.formGroup.controls['variavel2'].value);
-    this.variavel3 = Number(this.formGroup.controls['variavel3'].value);
+    this.variavel2 = Number.parseFloat(this.formGroup.controls['sinal2'].value + this.formGroup.controls['variavel2'].value);
+    this.variavel3 = Number(this.formGroup.controls['sinal3'].value + this.formGroup.controls['variavel3'].value);
 
-    if (this.calculaDerivada(intervalo) > this.calculaDerivada(intervalo2)){
+    if (this.calculaDerivada(intervalo) > this.calculaDerivada(intervalo2)) {
      this.x = intervalo;
     } else {
       this.x = intervalo2;
     }
-    
+
     for (let i = 0; i < 8; i++) {
-      
+
     //F(x)
     this.fx = this.calculaFuncao(this.x);
 
@@ -75,7 +75,12 @@ export class NewtonRaphsonComponent implements OnInit {
     //Error
     this.erro = this.x - this.fx;
 
-    this.objectTable.push(new ObjectTableNewton(i, this.x, this.fx, this.fxk1, this.erro));
+    if(this.erro < 0){
+      this.erro = this.erro * -1;
+    }
+
+    this.objectTable.push(new ObjectTableNewton(i, Number(this.x.toFixed(6)),
+      Number(this.fx.toFixed(6)), Number(this.fxk1.toFixed(6)), Number(this.erro.toFixed(6))));
 
     //X
     this.x = this.fxk1;
@@ -83,22 +88,20 @@ export class NewtonRaphsonComponent implements OnInit {
 
   }
 
-
-
-
   calculaDerivada(intervalo: number): number {
-    const result = Number.parseFloat(this.formGroup.controls['sinal'].value + Math.pow((this.expo * this.variavel),this.expo-1))
-      + Number.parseFloat(this.formGroup.controls['sinal'].value + Math.pow((this.expo2 * this.variavel2), this.expo2 - 1));
+    let result: number = (this.expo * this.variavel) *
+      Math.pow(intervalo, this.expo - 1)
+      + (this.expo2 * this.variavel2) *
+      Math.pow(intervalo, this.expo2 - 1);
       return result;
   }
 
   calculaFuncao(n: number): number {
-    const result1: number = Number.parseFloat(this.formGroup.controls['sinal'].value + Math.pow((
-      this.variavel * n), this.expo)) +
-      Number.parseFloat(this.formGroup.controls['sinal2'].value + Math.pow((
-        this.variavel2 * n), this.expo2)) +
-      Number.parseFloat(this.formGroup.controls['sinal3'].value +
-        this.variavel3);
+    const result1: number = Math.pow((
+      this.variavel * n), this.expo) +
+       Math.pow((
+        this.variavel2 * n), this.expo2) +
+        this.variavel3;
     return result1;
   }
 

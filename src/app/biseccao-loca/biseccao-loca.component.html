@@ -109,10 +109,13 @@
     </div>
     <div class="row">
       <div class="col-4">
-        <input class="form-control" formControlName="varA" type="number" placeholder="a">
+        <input class="form-control" formControlName="varA" type="number" placeholder="a"
+        [class.alert-danger]="hasError()"
+             [class.alert-success]="hasSucess()">
       </div>
       <div class="col-4">
-        <input class="form-control" formControlName="varB" type="number" placeholder=" b">
+        <input class="form-control" [class.alert-danger]="hasError2()"
+        [class.alert-success]="hasSucess2()" formControlName="varB" type="number" placeholder=" b">
       </div>
     </div>
     <br/>

@@ -56,24 +56,6 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
     });
   }
 
-  hasSucess(): boolean {
-    return this.input.valid && (this.input.dirty || this.input.touched)
-  }
-
-
-  hasSucess2(): boolean {
-    return this.input2.valid && (this.input2.dirty || this.input2.touched)
-  }
-
-  hasError(): boolean {
-    return this.input.invalid && (this.input.dirty || this.input.touched)
-  }
-
-  hasError2(): boolean {
-    return this.input2.invalid && (this.input2.dirty || this.input2.touched)
-  }
-
-
   calcular() {
     this.objectTable = [];
     this.a  = this.formGroup.controls['varA'].value;
@@ -120,6 +102,25 @@ export class BiseccaoLocaComponent implements OnInit, AfterContentInit {
       Number.parseFloat(this.formGroup.controls['sinal3'].value + 
         this.variavel3);
         return result1;
+  }
+
+
+  hasSucess(): boolean{
+    return this.input.valid && (this.input.dirty || this.input.touched)
+  }
+
+
+  hasSucess2(): boolean{
+    return this.input2.valid && (this.input2.dirty || this.input2.touched)
+  }
+
+  hasError():boolean{
+    return this.input.invalid && (this.input.dirty || this.input.touched)
+  }
+
+
+  hasError2():boolean{
+    return this.input2.invalid && (this.input2.dirty || this.input2.touched)
   }
 
 }
