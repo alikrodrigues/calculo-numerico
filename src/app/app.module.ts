@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BiseccaoLocaComponent } from './biseccao-loca/biseccao-loca.component';
+import { IteracaoLinearComponent } from './iteracao-linear/iteracao-linear.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { BiseccaoLocaComponent } from './biseccao-loca/biseccao-loca.component';
     ConversaoComponent,
     BiseccaoComponent,
     BiseccaoLocaComponent,
-    NewtonRaphsonComponent
+    NewtonRaphsonComponent,
+    IteracaoLinearComponent
   ],
   imports: [
     BrowserModule,
