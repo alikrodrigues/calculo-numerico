@@ -118,27 +118,76 @@
   <div class="row">
     <button (click)="calcular()" [disabled]="formGroup.invalid" class="btn bg-dark text-white form-control">Calcular</button>
   </div>
+  <div class="row">
+    <span>1 Metodo</span>
+  </div>
   <div class="table-resposive">
   <table class="table">
     <thead>
       <tr>
         <th>k</th>
         <th>x</th>
-        <th>f(x)</th>
-        <th>f(xk+1)</th>
-        <th>erro</th>
+        <th>ek</th>
+        <th>p</th>
       </tr>
       </thead>
       <tbody>
         <tr *ngFor="let table of objectTable">
           <td>{{table.k}}</td>
           <td>{{table.x}}</td>
-          <td>{{table.fx}}</td>
-          <td>{{table.fxk1}}</td>
-          <td>{{table.error}}</td>
+          <td>{{table.ek}}</td>
+          <td>{{table.p}}</td>
         </tr>
       </tbody>
   </table>
   </div>
+  <br/>
+  <div class="row">
+    <span>2 Metodo</span>
+  </div>
+  <div class="table-resposive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>k</th>
+          <th>x</th>
+          <th>ek</th>
+          <th>p</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let table of objectTable">
+            <td>{{table.k}}</td>
+            <td>{{table.x}}</td>
+            <td>{{table.ek}}</td>
+            <td>{{table.p}}</td>
+          </tr>
+        </tbody>
+    </table>
+    </div>
+    <br/>
+    <div class="row">
+      <span>3 Metodo</span>
+    </div>
+    <div class="table-resposive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>k</th>
+            <th>x</th>
+            <th>ek</th>
+            <th>p</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let table of objectTable">
+              <td>{{table.k}}</td>
+              <td>{{table.x}}</td>
+              <td>{{table.ek}}</td>
+              <td>{{table.p}}</td>
+            </tr>
+          </tbody>
+      </table>
+      </div>
   
   </form>
